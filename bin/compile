@@ -37,13 +37,13 @@ echo "-----> exporting PATH"
 PROFILE_PATH="$BUILD_DIR/.profile.d/firefox.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 cat << EOF > $PROFILE_PATH
-export PATH="\$HOME/vendor/firefox:/app/bin:\$PATH"
+export PATH="\$HOME/vendor/firefox:/app/bin:/app/.apt/usr/bin:\$PATH"
 export LD_LIBRARY_PATH="\$LD_LIBRARY_PATH:\$HOME/vendor/firefox"
 EOF
 
 if [ -w ${bp_dir} ]; then
   cat << EOF > ${bp_dir}/export
-export PATH=$BUILD_DIR/vendor/firefox:/app/bin:\$PATH
+export PATH=$BUILD_DIR/vendor/firefox:/app/bin:/app/.apt/usr/bin:\$PATH
 export LD_LIBRARY_PATH="\$LD_LIBRARY_PATH:$BUILD_DIR/vendor/firefox"
 EOF
 fi
